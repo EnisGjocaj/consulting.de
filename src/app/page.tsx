@@ -1,28 +1,16 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
-import { ArrowUpCircle, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react'
+import { ChevronRight, ChevronLeft } from 'lucide-react'
 
-const menuItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Unternehmen', href: '/unternehmen', subItems: ['Über uns', 'Team', 'Karriere'] },
-  { name: 'Fertigung', href: '/fertigung', subItems: ['Prozesse', 'Qualität', 'Technologie'] },
-  { name: 'Produkte', href: '/produkte', subItems: ['Werkzeuge', 'Maschinenteile', 'Baugruppen'] },
-  { name: 'Dienstleistungen', href: '/dienstleistungen' },
-  { name: 'Referenzen', href: '/referenzen' },
-]
+import Footer from '@/components/Footer'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
+import Header from '@/components/Header'
 
-interface HeaderProps {
-  isScrolled: boolean;
-  mobileMenuOpen: boolean;
-  setMobileMenuOpen: (value: boolean) => void;
-}
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -49,102 +37,7 @@ export default function Home() {
   )
 }
 
-function Header({ isScrolled, mobileMenuOpen, setMobileMenuOpen }: HeaderProps) {
-  return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
-        isScrolled ? 'shadow-md py-2' : 'py-4'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          STOCK
-        </Link>
-        <div className="hidden md:block">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {menuItems.map((item) => (
-                <NavigationMenuItem key={item.name}>
-                  {item.subItems ? (
-                    <NavigationMenuTrigger>{item.name}</NavigationMenuTrigger>
-                  ) : (
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink className="text-sm font-medium">
-                        {item.name}
-                      </NavigationMenuLink>
-                    </Link>
-                  )}
-                  {item.subItems && (
-                    <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                        {item.subItems.map((subItem) => (
-                          <li key={subItem}>
-                            <NavigationMenuLink asChild>
-                              <a
-                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                href="#"
-                              >
-                                {subItem}
-                              </a>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  )}
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-        <div className="hidden md:block">
-          <Button variant="outline">KONTAKT</Button>
-        </div>
-        <button
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 bg-white"
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="container mx-auto py-8">
-              <button
-                className="absolute top-4 right-4"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <X size={24} />
-              </button>
-              <nav className="flex flex-col space-y-4">
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-lg font-medium"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  )
-}
+
 
 function HeroSection() {
   const { scrollY } = useScroll()
@@ -432,85 +325,3 @@ function CallToAction() {
   )
 }
 
-function Footer() {
-  return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Adresse</h3>
-            <p>Edmund Stock GmbH</p>
-            <p>Max-Eyth-Str. 3/1</p>
-            <p>75443 Ötisheim</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Kontakt</h3>
-            <p>Telefon: +49 (0)7041 / 937 36-0</p>
-            <p>Telefax: +49 (0)7041 / 937 36-50</p>
-            <p>E-Mail: info@stock-werkzeuge.de</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Infos</h3>
-            <ul className="space-y-2">
-              <li><Link href="/downloads" className="hover:underline">Downloads</Link></li>
-              <li><Link href="/impressum" className="hover:underline">Impressum</Link></li>
-              <li><Link href="/datenschutz" className="hover:underline">Datenschutz</Link></li>
-              <li><Link href="/cookie-einstellungen" className="hover:underline">Cookie Einstellungen</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; 2024 Edmund Stock GmbH. Alle Rechte vorbehalten</p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
-function ScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
-    window.addEventListener('scroll', toggleVisibility)
-
-    return () => window.removeEventListener('scroll', toggleVisibility)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className="fixed bottom-8 right-8"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Button
-            size="icon"
-            variant="secondary"
-            onClick={scrollToTop}
-            className="rounded-full shadow-lg"
-          >
-            <ArrowUpCircle className="h-6 w-6" />
-          </Button>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
