@@ -7,14 +7,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import { MapPin, Mail, Phone, ChevronRight } from 'lucide-react'
+import { MapPin, Mail, Phone, ChevronRight, Smartphone } from 'lucide-react'
 
 const employees = [
   { 
-    name: 'Rainer Stock', 
-    position: 'CEO',
-    frontImage: '/placeholder.svg?height=400&width=300', 
-    backImage: '/placeholder.svg?height=400&width=300'
+    name: 'Drilon Hulaj', 
+    position: 'Geschäftsführer',
+    frontImage: '/images/cnc9.jpg', 
+    backImage: '/images/logo.jpg'
   },
   { 
     name: 'Sven Isenmann', 
@@ -31,7 +31,7 @@ const employees = [
 ]
 
 export default function ContactPage() {
-  const [flipped, setFlipped] = useState<number | null>(null)
+  const [flipped, setFlipped] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 mt-20">
@@ -52,16 +52,28 @@ export default function ContactPage() {
                 transition={{ duration: 0.6 }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className="absolute w-full h-full backface-hidden overflow-hidden rounded-xl">
+                {/* Front Image */}
+                <div 
+                  className="absolute w-full h-full overflow-hidden rounded-xl"
+                  style={{
+                    backfaceVisibility: 'hidden',  // Ensure the back side isn't visible when flipped
+                    transform: 'rotateY(0deg)'     // Front side faces forward
+                  }}
+                >
                   <img src={employee.frontImage} alt={employee.name} className="w-full h-full object-cover" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-6">
                     <h3 className="text-2xl font-semibold">{employee.name}</h3>
                     <p className="text-lg">{employee.position}</p>
                   </div>
                 </div>
-                <div 
-                  className="absolute w-full h-full backface-hidden overflow-hidden rounded-xl"
-                  style={{ transform: 'rotateY(180deg)' }}
+
+                {/* Back Image */}
+                <div
+                  className="absolute w-full h-full overflow-hidden rounded-xl"
+                  style={{
+                    backfaceVisibility: 'hidden',  // Ensure the front side isn't visible when flipped
+                    transform: 'rotateY(180deg)',  // Back side faces backward
+                  }}
                 >
                   <img src={employee.backImage} alt={employee.name} className="w-full h-full object-cover opacity-50" />
                   <div className="absolute inset-0 bg-blue-600 bg-opacity-70 flex items-center justify-center">
@@ -74,11 +86,14 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+
               </motion.div>
             </motion.div>
           ))}
         </div>
-
+      </div>
+  
+      <div>
         <div className="bg-white shadow-2xl rounded-2xl overflow-hidden mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
@@ -86,15 +101,21 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="flex items-center">
                   <MapPin className="mr-4 h-6 w-6" />
-                  <p className="text-lg">Max-Eyth-Str. 3/1, 75443 Ötisheim</p>
+                  <div className="text-lg">Habermehlstraße 160<br/>
+                          75172 Pforzheim
+                  </div>
                 </div>
                 <div className="flex items-center">
                   <Mail className="mr-4 h-6 w-6" />
-                  <p className="text-lg">info@stock-werkzeuge.de</p>
+                  <p className="text-lg">d.hulaj@h-d-consulting.de</p>
+                </div>
+                <div className="flex items-center">
+                  <Smartphone className="mr-4 h-6 w-6" />
+                  <p className="text-lg">07232 3455017</p>
                 </div>
                 <div className="flex items-center">
                   <Phone className="mr-4 h-6 w-6" />
-                  <p className="text-lg">+49 (0)7041 / 937 36-0</p>
+                  <p className="text-lg">01796931230</p>
                 </div>
               </div>
               <div className="mt-12">
@@ -139,8 +160,16 @@ export default function ContactPage() {
           <h2 className="text-3xl font-semibold mb-8 text-gray-900">So finden Sie uns</h2>
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="aspect-w-16 aspect-h-9">
-              <iframe 
+              {/* <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937604!2d2.2922926156740844!3d48.858370079287466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sus!4v1621531907578!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy"
+              ></iframe> */}
+               <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.2820337976467!2d8.654536415963275!3d48.88469417929284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797e3ed4e3c0f93%3A0x5ee25060c4e34f9d!2sHabermehlstraße%20160%2C%2075172%20Pforzheim!5e0!3m2!1sen!2sus!4v1697430869814!5m2!1sen!2sus" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

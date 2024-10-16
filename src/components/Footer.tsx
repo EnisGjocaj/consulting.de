@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 function Footer() {
     return (
@@ -7,15 +7,15 @@ function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Adresse</h3>
-              <p>Edmund Stock GmbH</p>
-              <p>Max-Eyth-Str. 3/1</p>
-              <p>75443 Ötisheim</p>
+              <p>Habermehlstraße 160</p>
+              <p>75172 Pforzheim</p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Kontakt</h3>
-              <p>Telefon: +49 (0)7041 / 937 36-0</p>
-              <p>Telefax: +49 (0)7041 / 937 36-50</p>
-              <p>E-Mail: info@stock-werkzeuge.de</p>
+              <p>Telefon: 07232 3455017</p>
+              <p>Mobil: 0179 6931230</p>
+              <p>E-Mail: d.hulaj@h-d-consulting.de</p>
+              <p>Manager: Drilon Hulaj, Geschäftsführer</p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Infos</h3>
@@ -28,11 +28,11 @@ function Footer() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-            <p>&copy; 2024 Edmund Stock GmbH. Alle Rechte vorbehalten</p>
+            <p>&copy; 2024 Consulting.DE. Alle Rechte vorbehalten</p>
           </div>
         </div>
       </footer>
     )
-  }
+}
 
-  export default Footer;
+export default Footer;
