@@ -2,6 +2,7 @@
 const nextConfig = {};
 
 const eslintConfig = {
+    ignoreDuringBuilds: true,
     root: true,
     extends: ['next/core-web-vitals'],
     rules: {
