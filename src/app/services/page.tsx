@@ -13,17 +13,17 @@ const services = [
   {
     title: 'Reparatur / Wartung',
     description: 'Unsere Fachleute kümmern sich darum, dass Ihre Werkzeuge und Baugruppen gepflegt und voll einsatzbereit sind. Zu unserem professionellen Reparaturservice gehören Montagen und Wartungsarbeiten.',
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg']
+    images: ['/images/cnc3.jpg']
   },
   {
     title: 'Logistik',
     description: 'Stock ist ein Partner, auf den Sie sich verlassen können – auch bei der Projektlogistik. Zum Beispiel kümmern wir uns um die Materialbeschaffung: Unsere Kunden profitieren vom großen Stock-Rohmateriallager, das uns extrem reaktionsschnell macht.',
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg']
+    images: ['/images/cnc7.jpg']
   },
   {
     title: 'Qualitätskontrolle',
     description: 'Wir führen strenge Qualitätskontrollen durch, um sicherzustellen, dass alle unsere Produkte und Dienstleistungen den höchsten Standards entsprechen. Unser engagiertes Team von Experten verwendet modernste Technologien und Verfahren, um Präzision und Zuverlässigkeit zu gewährleisten.',
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg']
+    images: ['/images/cnc8.jpg']
   }
 ]
 

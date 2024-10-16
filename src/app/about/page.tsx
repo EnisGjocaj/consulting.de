@@ -26,7 +26,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          About STOCK
+          About Consulting.DE
         </motion.h1>
         
         <motion.div 
@@ -37,7 +37,7 @@ export default function AboutPage() {
         >
           <p className="text-xl text-gray-600">
             Pioneering precision manufacturing and innovative solutions since 2012. 
-            At VIJA, we're not just creating components; we're shaping the future of industry.
+            At consulting.de, we're not just creating components; we're shaping the future of industry.
           </p>
         </motion.div>
 
@@ -95,13 +95,13 @@ export default function AboutPage() {
             <CardContent className="flex flex-col md:flex-row items-center">
               <Image
                 src="/placeholder.svg?height=300&width=400"
-                alt="VIJA facility"
+                alt="Consulting facility"
                 width={400}
                 height={300}
                 className="rounded-lg mb-4 md:mb-0 md:mr-6"
               />
               <CardDescription className="text-lg text-gray-600">
-                Our modern facility in Karlovac, Croatia, is equipped with the latest technology 
+                Our modern facility in Deutchland,is equipped with the latest technology 
                 and staffed by skilled professionals. This expansion has allowed us to increase 
                 our production capacity and serve a broader range of industries across Europe.
               </CardDescription>
