@@ -19,7 +19,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" ref={ref}>
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 mt-10">
         <motion.h1 
           className="text-5xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -50 }}
@@ -68,19 +68,30 @@ export default function AboutPage() {
           />
         </div>
 
-        <motion.div
-          className="mb-16"
-          style={{ opacity, scale }}
-        >
-          <Card className="overflow-hidden">
-            <CardHeader>
-              <CardTitle className="text-2xl text-blue-600">Our Journey</CardTitle>
-            </CardHeader>
-            <CardContent>
+        <motion.div className="mb-16" style={{ opacity, scale }}>
+      <Card className="overflow-hidden">
+        <CardHeader>
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center"> {/* Flex column on small, row on medium+ */}
+            <div className="flex flex-col items-center mb-4 md:mb-0"> {/* Stack title and image */}
+              <CardTitle className="text-2xl text-blue-600 mb-2 text-center md:text-left">Our Journey</CardTitle> {/* Center title on small screens */}
+              <Image
+                src="/images/logo.jpg"
+                alt="Consulting facility"
+                width={300} 
+                height={300}
+                className="rounded-lg my-4 md:my-0"
+              />
+            </div>
+
+            <div className="flex-1 flex justify-center md:ml-6"> {/* Center Timeline on small screens */}
               <Timeline />
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
+          </div>
+        </CardHeader>
+      </Card>
+    </motion.div>
+
+      
 
         <motion.div
           className="mb-16"
@@ -94,7 +105,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="flex flex-col md:flex-row items-center">
               <Image
-                src="/placeholder.svg?height=300&width=400"
+                src="/images/logo.jpg"
                 alt="Consulting facility"
                 width={400}
                 height={300}
