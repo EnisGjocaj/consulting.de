@@ -123,7 +123,7 @@ export default function ServicesPage() {
           muted
           className="absolute w-full h-full object-cover"
         >
-          <source src="/placeholder-video.mp4" type="video/mp4" />
+          <source src="/videos/video1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-60" />
