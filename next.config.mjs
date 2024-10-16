@@ -10,6 +10,9 @@ const eslintConfig = {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-key': 'off',
         'import/no-anonymous-default-export': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-empty-object-type':'off',
+        'react/no-unescaped-entities': 'off',
     },
 };
 
