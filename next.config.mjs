@@ -13,7 +13,7 @@ const eslintConfig = {
         'import/no-anonymous-default-export': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-empty-object-type':'off',
-        'react/no-unescaped-entities': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
     },
 };
 
