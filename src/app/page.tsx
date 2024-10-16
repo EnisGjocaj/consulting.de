@@ -14,10 +14,10 @@ import Header from '@/components/Header'
 
 function MobileHeroSection() {
   const cards = [
-    { title: 'Präzision', image: '/placeholder.svg?height=200&width=300', description: 'Höchste Genauigkeit in allen Prozessen' },
-    { title: 'Innovation', image: '/placeholder.svg?height=200&width=300', description: 'Fortschrittliche Technologien für zukunftsweisende Lösungen' },
-    { title: 'Qualität', image: '/placeholder.svg?height=200&width=300', description: 'Kompromisslose Qualitätssicherung in jedem Schritt' },
-    { title: 'Kundenorientierung', image: '/placeholder.svg?height=200&width=300', description: 'Maßgeschneiderte Lösungen für Ihre Anforderungen' },
+    { title: 'Präzision', image: '/images/consultingImage2.jpg', description: 'Höchste Genauigkeit in allen Prozessen' },
+    { title: 'Innovation', image: '/images/cnc9.jpg', description: 'Fortschrittliche Technologien für zukunftsweisende Lösungen' },
+    { title: 'Qualität', image: '/images/cnc12.jpg', description: 'Kompromisslose Qualitätssicherung in jedem Schritt' },
+    { title: 'Kundenorientierung', image: '/images/consultingImage6.jpg', description: 'Maßgeschneiderte Lösungen für Ihre Anforderungen' },
   ]
 
   return (
